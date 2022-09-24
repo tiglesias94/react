@@ -1,0 +1,21 @@
+.card__counter{
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+}
+
+.counter__operators{
+    display: flex;
+    width: 15rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.counter__button{
+    width: 2rem;
+}
+
+.counter__display{
+    width: 11rem;
+    text-align: center;
+}

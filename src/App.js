@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faShoppingCart} from '@fortawesome/free-solid-svg-icons'
+import { ItemCount } from './components/ItemCount';
 
 library.add(fab, faShoppingCart)
 
@@ -21,6 +22,7 @@ function App() {
     <main>
       <ItemListContainer greeting={'Productos Disponibles'} />
     </main>
+
     </>
   );
 }
