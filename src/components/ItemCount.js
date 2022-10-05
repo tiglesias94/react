@@ -24,7 +24,6 @@ export let ItemCount = ()=>{
                 <h4 className='counter__display'>{count}</h4>
                 <button onClick={sum} className='counter__button'>+</button>
             </div>
-            <button className='card__addToCart'>AGREGAR CARRITO</button>
         </div>
     )
 }

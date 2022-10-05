@@ -1,15 +1,25 @@
 import './ItemListContainer.css'
 import ItemList from './ItemList';
+import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom'
 
-const products = [
-    {id:'alfa-N-6', name:'Alfajor Negro Caja x6u', stock:'0'},
-    {id:'alfa-N-12', name:'Alfajor Negro Caja x12u', stock:'0'},
-    {id:'alfa-B-6', name:'Alfajor Blanco Caja x6u', stock:'0'},
-    {id:'alfa-B-12', name:'Alfajor Blanco Caja x12u', stock:'0'}
-    ];
-
+import { getProducts } from '../utils/products';
     
 const ItemListContainer = ({greeting}) =>{
+
+    const [products, setProducts] = useState([])
+
+    useEffect(()=>{
+        getProducts()
+            .then((data)=>setProducts(data))
+            .catch((error)=> console.warn(error))
+    },[]);
+
+    const{categoryName} = useParams();
+    useEffect(()=>{
+        console.log(categoryName)
+    },[categoryName])
+
     return(
         <div>
            <h1>Tienda EntreEspigas</h1> 

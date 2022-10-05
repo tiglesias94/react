@@ -7,3 +7,7 @@ margin: 1rem;
 .card__title{
 
 }
+
+.card__img{
+    width: 15rem;
+}
