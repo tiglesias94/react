@@ -13,7 +13,8 @@ const NavBar = () => {
             <Nav.Link as={Link} to='/'>ENTRE ESPIGAS</Nav.Link>
           </Navbar.Brand>
           <Nav className="me-auto">
-          <Nav.Link as={Link}to='/category/alfajores'>Nuestros Alfajores</Nav.Link>
+          <Nav.Link as={Link}to='/category/alfnegro'>Alfajor Negro</Nav.Link>
+          <Nav.Link as={Link}to='/category/alfblanco'>Alfajor Blanco</Nav.Link>
           </Nav>
 
           <CartWidget />

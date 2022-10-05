@@ -3,7 +3,7 @@ import { ModalTitle } from 'react-bootstrap';
 import { useParams } from 'react-router-dom'
 import { getProduct } from '../utils/products';
 import Item from './Item';
-import ItemList from './ItemList';
+import ItemDetail from "./ItemDetail"
 
 const ItemDetailCointainer = () => {
 
@@ -23,7 +23,7 @@ const ItemDetailCointainer = () => {
         return ( 
             <>
             <h1>Detalle del Producto</h1>
-            <Item product={product} />
+            <ItemDetail product={product} />
             </>
         );
 }

@@ -10,7 +10,6 @@ const Item = ({product}) => {
             <h1 className="card__title">{product.title}</h1>
             <img src={product.pictureURL} className="card__img"></img>
             <p>{product.description}</p>
-            <ItemCount />
             <Link to={`/item/${product.id}`}>
                 <button className='card__seeDetails'>VER DETALLES</button>
             </Link>
