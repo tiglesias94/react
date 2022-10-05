@@ -10,11 +10,11 @@ const ItemListContainer = ({greeting}) =>{
     const [products, setProducts] = useState([])
 
 
-    const{categoryName} = useParams();
+    const{categoryId} = useParams();
 
     useEffect(()=>{
-        if(categoryName){
-            getProductsByCategory(categoryName)
+        if(categoryId){
+            getProductsByCategory(categoryId)
             .then((data)=>setProducts(data))
             .catch((error)=> console.warn(error))
         } 
@@ -23,7 +23,7 @@ const ItemListContainer = ({greeting}) =>{
             .then((data)=>setProducts(data))
             .catch((error)=> console.warn(error))
         }
-    },[categoryName]);
+    },[categoryId]);
 
     return(
         <div>

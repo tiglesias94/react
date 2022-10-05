@@ -16,9 +16,9 @@ const products = [
         return promise
     };
 
-    export const getProductsByCategory = (categoryName)=>{
+    export const getProductsByCategory = (categoryId)=>{
         const promise = new Promise((resolve)=>{
-            const results = products.filter((item) => item.category === categoryName);
+            const results = products.filter((item) => item.category === categoryId);
             setTimeout(()=>{
                 return resolve(results);
             },2000) 
