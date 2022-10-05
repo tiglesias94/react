@@ -18,7 +18,7 @@ library.add(fab, faShoppingCart)
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/react'>
     <NavBar />
     <Routes>
       <Route path='/' element={<ItemListContainer greeting={'Productos Disponibles'}/>}/>
