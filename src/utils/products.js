@@ -18,7 +18,7 @@ const products = [
 
     export const getProduct = (id)=>{
         const promise = new Promise((resolve)=>{
-            const result = products.find((product) => product.id === id)
+            const result = products.find((item) => item.id === id)
             setTimeout(()=>{
                 return resolve(result);
             },2000) 
