@@ -1,21 +1,39 @@
 import Item from "./Item";
-import { ItemCount } from "./ItemCount";
+import  ItemCount from "./ItemCount";
+import React, { useState, useEffect, useContext } from "react";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import cartContext from "../context/cartContext";
 
-const ItemDetail = ({product}) => {
-    return ( 
-        <div>
-            <div className="item__card">  
-                <h1 className="card__title">{product.title}</h1>
-                <img src={product.pictureURL} className="card__img"></img>
-                <p>{product.description}</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula suscipit mauris. Fusce egestas id odio luctus convallis. Ut at congue odio. In nec velit faucibus metus suscipit facilisis. Sed volutpat tincidunt odio, ac laoreet arcu ultrices at. </p>
-                <h3>PRECIO POR CAJA: ${product.price}</h3>
-                <h3>CANTIDAD</h3>
-                <ItemCount />
-                <button className='card__addToCart'>AGREGAR AL CARRITO</button>
-            </div>           
-        </div>
-     );
-}
- 
-export default ItemDetail;
+
+const ItemDetail = ({ product }) => {
+    const { addItem } = useContext(cartContext);
+    const [count, setCount] = useState(0);
+    const [showItemCount, setShowItemCount] = useState(true);
+  
+    const handleAdd = (value) => {
+      setCount(value);
+      setShowItemCount(false);
+      addItem(product, value);
+    };
+  
+    return (
+      <div className='itemDetailContainer'>
+        <Item product={product} />
+        {showItemCount && (<ItemCount
+            initial={1}
+            stock={999}
+            onAdd={handleAdd}
+          />)}
+        {!showItemCount && (
+            <Link to='/cart'>
+              <Button variant="success">
+                  Ir al Carrito
+              </Button>
+            </Link>
+        )}
+      </div>
+    );
+  }
+
+  export default ItemDetail;

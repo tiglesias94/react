@@ -26,10 +26,12 @@ const ItemListContainer = ({greeting}) =>{
     },[categoryId]);
 
     return(
-        <div>
-           <h1>Tienda EntreEspigas</h1> 
-           <h3 className="greeting">{greeting}</h3>
+        <div className='mainBanner'>
+            <div className='subBanner'><img src="https://firebasestorage.googleapis.com/v0/b/coderhouse-react-tiglesias.appspot.com/o/PNG%20MOD%20BLANCO.png?alt=media&token=94774dfb-9906-41b0-ad57-b47540ff0dd6" className='mainBanner__logo'></img>
+           <h1 className="mainTitle">Alfajores de Especialidad</h1> 
+           </div>          
            <ItemList products={products}/>
+           <footer></footer>
         </div>
     );
 }

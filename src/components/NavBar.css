@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navBar{
+    background-color: rgb(0, 0, 0);
+    height: 5rem;}
+
+.navLink{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: rgb(241, 241, 241);
+}
+
+.navTitle{
+    font-family: 'Dancing Script';
+    font-size: 3rem;
+    font-weight: 400;
+    color: whitesmoke;
+    margin-right: 2rem;
+}
+
+.navTitle:hover{
+    color: rgb(141, 0, 0);
+}
+
+.nav-link{
+    color: whitesmoke;
+}
+
+.navBrand{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0;
+    padding: 0;
+}

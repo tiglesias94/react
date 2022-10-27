@@ -1,29 +1,45 @@
 import './ItemCount.css'
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Button } from 'react-bootstrap';
 
-export let ItemCount = ()=>{
 
-    let [count, setCount] = useState(0);
+const ItemCount = ({ initial, stock, onAdd }) => {
+  const [count, setCount] = useState(parseInt(initial));
 
-    const sum = ()=>{
-        setCount(count + 1);
-    }
+  const handleSubtract = () => {
+    setCount(count - 1)
+  }
 
-    const sub = ()=>{
-        if (count>0){
-            setCount(count - 1)
-        }else{
-            count=0
-        }
-    }
+  const handleAdd = () => {
+    setCount(count + 1)
+  }
 
-    return(
-        <div className='card__counter'>
-            <div className='counter__operators'>
-                <button onClick={sub} className='counter__button'>-</button>
-                <h4 className='counter__display'>{count}</h4>
-                <button onClick={sum} className='counter__button'>+</button>
-            </div>
+  const handleClick = () => {
+    onAdd(count);
+  }
+
+  useEffect(() => {
+      setCount(parseInt(initial));
+  },[initial])
+
+  return (
+    <div className='itemCountContainer'>
+        <div>
+          <Button variant="danger" disabled={count <= 1} onClick={handleSubtract}>
+            -
+          </Button>
+          <h5>{count}</h5>
+          <Button variant="success" disabled={count >= stock} onClick={handleAdd}>
+            +
+          </Button>
         </div>
-    )
+      <div>
+      <Button variant="primary" disabled={stock <= 0} onClick={handleClick}>
+        Agregar al  Carrito
+      </Button>
+      </div>
+    </div>
+  )
 }
+
+export default ItemCount

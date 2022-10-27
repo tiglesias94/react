@@ -1,13 +1,38 @@
 .item__card{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;   
 width: 20rem;
-background-color: grey;
-margin: 1rem;
+height: 30rem;
+background-color: rgba(0, 0, 0, 0.814);
+padding: 2rem;
 }
 
 .card__title{
-
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: rgb(200, 200, 200);
+    font-size: 1.6rem;
+    margin-bottom: 1REM;
+    text-align: center;
 }
 
 .card__img{
     width: 15rem;
+}
+
+.card__desc{
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(200, 200, 200);
+    font-size: 1.25rem;
+}
+
+.card__seeDetails{
+    background-color: rgba(75, 75, 75, 0.786);
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(200, 200, 200);
+    height:  3rem;
+    padding: 0.5rem;
 }

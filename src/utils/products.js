@@ -1,37 +1,62 @@
-import { responsivePropType } from "react-bootstrap/esm/createUtilityClasses";
+import { addDoc, collection, doc, getDoc, getDocs, getFirestore, query, where } from "firebase/firestore";
 
-const products = [
-    {id:'alfa-N-6', title:'Alfajor Negro Caja x6u', description:"string", price:100, pictureURL:"https://lasrecetasdelchef.net/wp-content/uploads/2020/08/alfajor-triple.jpg", stock:'0', category:"alfnegro"},
-    {id:'alfa-N-12', title:'Alfajor Negro Caja x12u', description:"string", price:100, pictureURL:"https://lasrecetasdelchef.net/wp-content/uploads/2020/08/alfajor-triple.jpg", stock:'0', category:"alfnegro"},
-    {id:'alfa-B-6', title:'Alfajor Blanco Caja x6u', description:"string", price:100, pictureURL:"https://cachafaz.com/wp-content/uploads/2019/10/Productos-Alfajor-choco-bco.jpg", stock:'0', category:"alfblanco"},
-    {id:'alfa-B-12', title:'Alfajor Blanco Caja x12u', description:"string", price:100, pictureURL:"https://cachafaz.com/wp-content/uploads/2019/10/Productos-Alfajor-choco-bco.jpg", stock:'0', category:"alfblanco"}
-    ];
+export const getAllProducts = () => {
+  const database = getFirestore();
+  const collectionReference = collection(database, 'items');
 
-    export const getAllProducts = ()=>{
-        const promise = new Promise((resolve)=>{
-            setTimeout(()=>{
-                return resolve(products);
-            },2000) 
-        })
-        return promise
-    };
+  return getDocs(collectionReference)
+    .then(snapshot => {
+      const list = snapshot
+        .docs
+        .map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+      return list;
+    })
+    .catch(error => console.warn(error))
+};
 
-    export const getProductsByCategory = (categoryId)=>{
-        const promise = new Promise((resolve)=>{
-            const results = products.filter((item) => item.category === categoryId);
-            setTimeout(()=>{
-                return resolve(results);
-            },2000) 
-        })
-        return promise
-    };
+export const getProduct = (id) => {
+  const database = getFirestore();
+  const itemReference = doc(database, 'items', id);
+  return getDoc(itemReference)
+    .then(snapshot => {
+      if(snapshot.exists()) {
+        const item = {
+          id: snapshot.id,
+          ...snapshot.data()
+        };
+        return item;
+      }
+    })
+  
+};
 
-    export const getProduct = (id)=>{
-        const promise = new Promise((resolve)=>{
-            const result = products.find((item) => item.id === id)
-            setTimeout(()=>{
-                return resolve(result);
-            },2000) 
-        })
-        return promise
-    }
+export const getProductsByCategory = (categoryId) => {
+  // obtenemos la basedatos
+  const database = getFirestore();
+
+  // obtenemos la referencia a la collecion
+  const collectionReference = collection(database, 'items');
+
+  // crear query/consulta con el filtro que queremos aplicar
+  const collectionQuery = query(collectionReference, where('category', '==', categoryId))
+
+  // obtenemos los datos desde firestore
+  return getDocs(collectionQuery)
+    .then(snapshot => {
+      if (snapshot.size === 0)
+        return [];
+      
+      const list = snapshot
+        .docs
+        .map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+      return list;
+    })
+    .catch(error => console.warn(error))
+};
+
