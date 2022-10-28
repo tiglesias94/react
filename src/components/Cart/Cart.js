@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import OrderModal from "../Modal";
 import { createOrder } from "../../utils/orders";
 import { getCurrentDate } from "../../utils/getCurrentDate";
+import "./Cart.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 const currentDate = getCurrentDate();
@@ -43,31 +45,31 @@ const Cart = () => {
 
   const showTable = cart.length > 0
   return (
-    <Container className='cartContainer'>
-      <h1>Carrito de Compras</h1>
+    <div className='cartContainer'>
+      <h1 className="cartTitle">RESUMEN DE PEDIDO</h1>
       {showTable && (
         <>
-          <Table striped bordered hover>
+          <Table variant="dark" striped borderless hover className="Table">
             <thead>
               <tr>
-                <th>Titulo</th>
-                <th>Precio</th>
-                <th>Cantidad</th>
-                <th>Accion</th>
+                <th className="tableText">PRODUCTO</th>
+                <th className="tableText">PRECIO UNITARIO</th>
+                <th className="tableText">CANTIDAD</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
                 {cart.map((item) => (
                   <tr key={item.id}>
-                    <td>{item.title}</td>
-                    <td>{item.price}</td>
-                    <td>{item.quantity}</td>
-                    <td><button onClick={() => handleRemove(item.id)}>Borrar Item</button></td>
+                    <td className="tableText2">{item.title}</td>
+                    <td className="tableText2">{item.price}</td>
+                    <td className="tableText2">{item.quantity}</td>
+                    <td><a onClick={() => handleRemove(item.id)}><i class="fa-solid fa-trash fa-lg"></i></a></td>
                   </tr>
                 ))}
             </tbody>
           </Table>
-          <h3>Total: $ {total}</h3>
+          <h3 className="cartTitle">Total: $ {total}</h3>
           <Button variant="success" onClick={handleOpen}>Finalizar compra</Button>
         </>
       )}
@@ -85,7 +87,7 @@ const Cart = () => {
         onBuy={handleBuy}
         orderId={orderId}
       />
-    </Container>
+    </div>
   );
 }
  

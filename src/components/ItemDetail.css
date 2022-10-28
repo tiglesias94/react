@@ -1,0 +1,115 @@
+.itemDetailContainer{
+    width: 100vw;
+    display: flex;
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/coderhouse-react-tiglesias.appspot.com/o/_EZE8029.jpg?alt=media&token=457679c3-fbd8-494b-b9af-60820795e903);
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.itemDetail__card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+    width: 40vw;
+    height: 30rem;
+    background-color: rgba(0, 0, 0, 0.16);
+    padding: 2rem;
+    height: 100vh;
+}
+    
+    .detailCard__title{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        color: rgb(200, 200, 200);
+        font-size: 2rem;
+        margin-bottom: 1REM;
+        text-align: center;
+    }
+    
+    .detailCard__img{
+        width: 20rem;
+    }
+    
+    .detailCard__desc{
+        margin-top: 2rem;
+        font-family: 'Montserrat', sans-serif;
+        color: rgb(0, 0, 0);
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .productDetail{
+        width: 60vw;
+        background-color: rgba(0, 0, 0, 0.162);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .productDetail__info{
+        height: 30%;
+        width: 50%;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.4rem;
+        font-family: 'Montserrat', sans-serif;
+        color: whitesmoke;
+    }
+
+    .productDetail__buttons{
+        width: 50%;
+        display: flex;
+
+
+    }
+
+    .itemCountContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .itemCountButtons{
+        margin: 1rem;
+        width: 50%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .SumButton{
+        width: 5rem;
+        
+    }
+
+    .countNumber{
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-left: 3rem;
+        margin-right: 3rem;
+        font-family: 'Montserrat', sans-serif;
+        color: whitesmoke;
+    }
+
+    .addButton{
+        margin-top: 1rem;
+        width: 14rem;
+    }
+
+    .cartButton{
+        width: 14rem;
+    }
+
+    .cartButton__container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }

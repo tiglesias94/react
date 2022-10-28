@@ -1,0 +1,28 @@
+.cartContainer{
+    width: 100vw;
+    min-height: 100vw;    
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/coderhouse-react-tiglesias.appspot.com/o/_EZE8029.jpg?alt=media&token=457679c3-fbd8-494b-b9af-60820795e903);
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+}
+
+.Table{
+    text-align: center;
+}
+
+.tableText{
+    font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        color: rgb(200, 200, 200);
+        font-size: 1.2rem;
+}
+
+.cartTitle{
+    font-family: 'Montserrat', sans-serif;
+        font-weight: 800;
+        margin: 2rem;
+        color: rgb(200, 200, 200);
+        font-size: 2rem;
+}

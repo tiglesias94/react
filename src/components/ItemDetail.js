@@ -4,6 +4,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import cartContext from "../context/cartContext";
+import "./ItemDetail.css"
 
 
 const ItemDetail = ({ product }) => {
@@ -19,20 +20,34 @@ const ItemDetail = ({ product }) => {
   
     return (
       <div className='itemDetailContainer'>
-        <Item product={product} />
-        {showItemCount && (<ItemCount
+        
+        <div className="itemDetail__card">  
+            <h1 className="detailCard__title">{product.title}</h1>
+            <img src={product.pictureURL} className="detailCard__img"></img>
+        </div>
+
+        <div className="productDetail">
+          <p className="productDetail__info">{product.detail}</p> 
+          <div className="productDetail__buttons">
+          {showItemCount && (<ItemCount
             initial={1}
             stock={999}
             onAdd={handleAdd}
           />)}
-        {!showItemCount && (
-            <Link to='/cart'>
-              <Button variant="success">
-                  Ir al Carrito
-              </Button>
-            </Link>
-        )}
+          {!showItemCount && (
+            <div className="cartButton__container">
+              <Link to='/cart'>
+                <Button variant="success" className="cartButton">
+                    Ir al Carrito
+                </Button>
+              </Link>
+            </div>
+          )}
+          </div>
+        </div>
+          
       </div>
+         
     );
   }
 

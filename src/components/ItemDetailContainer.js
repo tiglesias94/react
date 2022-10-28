@@ -22,7 +22,6 @@ const ItemDetailCointainer = () => {
 
         return ( 
             <>
-            <h1>Detalle del Producto</h1>
             <ItemDetail product={product} />
             </>
         );
