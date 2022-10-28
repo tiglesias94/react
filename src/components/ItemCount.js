@@ -1,4 +1,4 @@
-import './ItemCount.css'
+import './css/ItemCount.css'
 import React, { useState, useEffect } from "react";
 import { Button } from 'react-bootstrap';
 
@@ -19,24 +19,24 @@ const ItemCount = ({ initial, stock, onAdd }) => {
   }
 
   useEffect(() => {
-      setCount(parseInt(initial));
-  },[initial])
+    setCount(parseInt(initial));
+  }, [initial])
 
   return (
     <div className='itemCountContainer'>
-        <div className='itemCountButtons'>
-          <Button   variant="light" disabled={count <= 1} onClick={handleSubtract} className="SumButton">
-            -
-          </Button>
-          <h5 className="countNumber">{count}</h5>
-          <Button  variant="light" disabled={count >= stock} onClick={handleAdd} className="SumButton">
-            +
-          </Button>
-        </div>
+      <div className='itemCountButtons'>
+        <Button variant="light" disabled={count <= 1} onClick={handleSubtract} className="SumButton">
+          -
+        </Button>
+        <h5 className="countNumber">{count}</h5>
+        <Button variant="light" disabled={count >= stock} onClick={handleAdd} className="SumButton">
+          +
+        </Button>
+      </div>
       <div>
-      <Button variant="danger" disabled={stock <= 0} onClick={handleClick} className="addButton">
-        Agregar al  Carrito
-      </Button>
+        <Button variant="danger" disabled={stock <= 0} onClick={handleClick} className="addButton">
+          Agregar al  Carrito
+        </Button>
       </div>
     </div>
   )

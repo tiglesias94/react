@@ -1,0 +1,26 @@
+.modalTitle{
+    font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        color: rgb(0, 0, 0);
+        font-size: 1.2rem;
+        text-align: center;
+        width: 100%;
+}
+
+.modalItem{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    text-align: left;
+    width: 100%;
+}
+
+.footerOrderSuccess{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}

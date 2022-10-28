@@ -1,12 +1,11 @@
 import { useContext, useState } from "react";
-import { Button, Container, Table } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 import CartContext from "../../context/cartContext";
 import { Link } from "react-router-dom";
 import OrderModal from "../Modal";
 import { createOrder } from "../../utils/orders";
 import { getCurrentDate } from "../../utils/getCurrentDate";
 import "./Cart.css"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 const currentDate = getCurrentDate();
@@ -20,7 +19,6 @@ const buyerMock = {
 
 const Cart = () => {
   const { cart, total, removeItem, clear } = useContext(CartContext);
-  const [user, setUser] = useState(buyerMock);
   const [showModal, setShowModal] = useState(false);
   const [orderId, setOrderId] = useState();
 
@@ -36,6 +34,7 @@ const Cart = () => {
     const newOrder = {
       buyer: buyerMock,
       items: cart,
+      date:currentDate, 
       total
     };
     const newOrderId = await createOrder(newOrder);
@@ -59,14 +58,14 @@ const Cart = () => {
               </tr>
             </thead>
             <tbody>
-                {cart.map((item) => (
-                  <tr key={item.id}>
-                    <td className="tableText2">{item.title}</td>
-                    <td className="tableText2">{item.price}</td>
-                    <td className="tableText2">{item.quantity}</td>
-                    <td><a onClick={() => handleRemove(item.id)}><i class="fa-solid fa-trash fa-lg"></i></a></td>
-                  </tr>
-                ))}
+              {cart.map((item) => (
+                <tr key={item.id}>
+                  <td className="tableText2">{item.title}</td>
+                  <td className="tableText2">{item.price}</td>
+                  <td className="tableText2">{item.quantity}</td>
+                  <td><a onClick={() => handleRemove(item.id)}><i class="fa-solid fa-trash fa-lg"></i></a></td>
+                </tr>
+              ))}
             </tbody>
           </Table>
           <h3 className="cartTitle">Total: $ {total}</h3>
@@ -75,7 +74,7 @@ const Cart = () => {
       )}
       {!showTable && (
         <>
-          <h3>Carrito de compra vacio</h3>
+          <h3 className="emptyCart">(NO HAY PRODUCTOS EN CARRO)</h3>
           <Link to='/'>
             <Button variant="success">Ver productos</Button>
           </Link>
@@ -90,5 +89,5 @@ const Cart = () => {
     </div>
   );
 }
- 
+
 export default Cart;
