@@ -39,7 +39,7 @@ function App() {
 
 
   return (
-    <BrowserRouter basename='react/'>
+    <BrowserRouter basename='/react'>
       <CartProvider>
         <NavBar />
           <Routes>
