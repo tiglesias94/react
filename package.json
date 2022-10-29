@@ -27,8 +27,8 @@
     "eject": "react-scripts eject"
   },
 
-  "homepage": "https://tiglesias94.github.io/react",
-  
+  "homepage": "https://tiglesias94.github.io/react/",
+
   "eslintConfig": {
     "extends": [
       "react-app",
